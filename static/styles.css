@@ -1,0 +1,84 @@
+body {
+    min-height: 100lvh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
+
+a {
+    color: black;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+button.btn.btn-lg {
+  display: block;
+  width: 100%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.shortage-container {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: lightgray;
+  max-height: 424px;
+  overflow-y: scroll;
+}
+
+.shortage-element {
+  box-sizing: border-box;
+  background-color: white;
+  width: 100%;
+  margin: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shortage-element a {
+  margin-left: auto;
+  text-decoration: none;
+  background: black;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.item-form-container {
+  /* background: lightgray; */
+  border-radius: 12px;
+  padding: 32px 18px;
+}
+
+.my-btn {
+  text-decoration: none;
+  background: black;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.trash-icon {
+  transtion: color 20ms;
+  cursor: pointer;
+}
+
+.trash-icon:hover {
+  color: red;
+}

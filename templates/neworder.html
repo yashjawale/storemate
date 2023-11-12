@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+New Order
+{% endblock %}
+
+{% block main %}
+    <h1 class="py-3">New Order</h1>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="d-flex justify-content-between py-3">
+                <h3 class="flex-fill">Total: $ <span id="order-total">0</span></h3>
+                <button class="btn btn-primary btn-md" width="200px">Proceed</button>
+            </div>
+            <table class="table table-striped rounded overflow-hidden">
+                <thead class="table-success">
+                    <tr>
+                        <th>Code</th>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="item-container">
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <div class="item-form-container bg-secondary-subtle">
+                <h5>User Details</h5>
+                <form>
+                    <div class="mb-3">
+                        <!-- <label for="itemName" class="form-label">Name</label> -->
+                        <input type="text" class="form-control" id="itemName" placeholder="Name">
+                    </div>
+                    <div class="mb-3">
+                        <!-- <label for="itemName" class="form-label">Mobile</label> -->
+                        <input type="text" class="form-control" id="itemName" placeholder="Mobile">
+                    </div>
+                </form>
+            </div>
+
+            <div class="item-form-container bg-secondary-subtle mt-3">
+                <h5>Add Item</h5>
+                <form>
+                    <div class="row mb-3">
+                        <label for="barcode" class="form-label">Item name or code</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Eg. 110X453" aria-label="Bar Code" id="add-item-code">
+                            <button class="btn btn-success pb-0"><span class="material-symbols-outlined">qr_code_2</span></button>
+                        </div>
+                    </div>
+                    <button class="btn btn-success" type="submit" id="add-item-button">Add Item</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/additem.js"></script>
+{% endblock %}

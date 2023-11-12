@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Search
+{% endblock %}
+
+{% block main %}
+    <h1 class="py-3">Search Past Orders</h1>
+    <!-- <div class="row">
+        <div class="col-md-6">
+
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-md-7">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter Customer Name, Mobile or Order Number" aria-label="First name">
+                <a href="#" class="btn btn-success" style="padding-top: 10px;"><span class="material-symbols-outlined">search</span></a>
+            </div>
+        </div>
+      </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped rounded overflow-hidden">
+                <thead class="table-success">
+                    <tr>
+                        <th>Order No.</th>
+                        <th>Phone</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Amount</th>
+                        <th>Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>22435H342</td>
+                        <td>9875839495</td>
+                        <td>Ramesh Bhatis</td>
+                        <td>3rd Jul 2023</td>
+                        <td>03:24</td>
+                        <td>$ 34.50</td>
+                        <td><a href="#"><span class="material-symbols-outlined">info</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>22435H342</td>
+                        <td>9875839495</td>
+                        <td>Ramesh Bhatis</td>
+                        <td>3rd Jul 2023</td>
+                        <td>03:24</td>
+                        <td>$ 34.50</td>
+                        <td><a href="#"><span class="material-symbols-outlined">info</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>22435H342</td>
+                        <td>9875839495</td>
+                        <td>Ramesh Bhatis</td>
+                        <td>3rd Jul 2023</td>
+                        <td>03:24</td>
+                        <td>$ 34.50</td>
+                        <td><a href="#"><span class="material-symbols-outlined">info</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>22435H342</td>
+                        <td>9875839495</td>
+                        <td>Ramesh Bhatis</td>
+                        <td>3rd Jul 2023</td>
+                        <td>03:24</td>
+                        <td>$ 34.50</td>
+                        <td><a href="#"><span class="material-symbols-outlined">info</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>22435H342</td>
+                        <td>9875839495</td>
+                        <td>Ramesh Bhatis</td>
+                        <td>3rd Jul 2023</td>
+                        <td>03:24</td>
+                        <td>$ 34.50</td>
+                        <td><a href="#"><span class="material-symbols-outlined">info</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>22435H342</td>
+                        <td>9875839495</td>
+                        <td>Ramesh Bhatis</td>
+                        <td>3rd Jul 2023</td>
+                        <td>03:24</td>
+                        <td>$ 34.50</td>
+                        <td><a href="#"><span class="material-symbols-outlined">info</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>22435H342</td>
+                        <td>9875839495</td>
+                        <td>Ramesh Bhatis</td>
+                        <td>3rd Jul 2023</td>
+                        <td>03:24</td>
+                        <td>$ 34.50</td>
+                        <td><a href="#"><span class="material-symbols-outlined">info</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>22435H342</td>
+                        <td>9875839495</td>
+                        <td>Ramesh Bhatis</td>
+                        <td>3rd Jul 2023</td>
+                        <td>03:24</td>
+                        <td>$ 34.50</td>
+                        <td><a href="#"><span class="material-symbols-outlined">info</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>22435H342</td>
+                        <td>9875839495</td>
+                        <td>Ramesh Bhatis</td>
+                        <td>3rd Jul 2023</td>
+                        <td>03:24</td>
+                        <td>$ 34.50</td>
+                        <td><a href="#"><span class="material-symbols-outlined">info</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>22435H342</td>
+                        <td>9875839495</td>
+                        <td>Ramesh Bhatis</td>
+                        <td>3rd Jul 2023</td>
+                        <td>03:24</td>
+                        <td>$ 34.50</td>
+                        <td><a href="#"><span class="material-symbols-outlined">info</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>22435H342</td>
+                        <td>9875839495</td>
+                        <td>Ramesh Bhatis</td>
+                        <td>3rd Jul 2023</td>
+                        <td>03:24</td>
+                        <td>$ 34.50</td>
+                        <td><a href="#"><span class="material-symbols-outlined">info</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>22435H342</td>
+                        <td>9875839495</td>
+                        <td>Ramesh Bhatis</td>
+                        <td>3rd Jul 2023</td>
+                        <td>03:24</td>
+                        <td>$ 34.50</td>
+                        <td><a href="#"><span class="material-symbols-outlined">info</span></a></td>
+                    </tr>
+                    <tr>
+                        <td>22435H342</td>
+                        <td>9875839495</td>
+                        <td>Ramesh Bhatis</td>
+                        <td>3rd Jul 2023</td>
+                        <td>03:24</td>
+                        <td>$ 34.50</td>
+                        <td><a href="#"><span class="material-symbols-outlined">info</span></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="col-md-4">
+            <div class="row">
+                <div class="col-6"><button class="btn btn-success btn-lg">New Order</button></div>
+                <div class="col-6"><button class="btn btn-primary btn-lg">Search History</button></div>
+            </div>
+            <div class="row my-4">
+                <div class="col"><button class="btn btn-warning btn-lg">Manage Inventory</button></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                </div>
+            </div>
+        </div> -->
+    </div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Inventory
+{% endblock %}
+
+{% block main %}
+    <h1 class="py-3">Inventory</h1>
+    <div class="row">
+        <div class="col-md-9">
+            <table class="table table-striped rounded overflow-hidden">
+                <thead class="table-success">
+                    <tr>
+                        <th>Item Code</th>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td>{{ item.item_code }}</td>
+                        <td>{{ item.item_name }}</td>
+                        <td>$ {{ item.item_price }}</td>
+                        <td>{{ item.item_quantity }}</td>
+                        <td><a href="#" class="my-btn">Edit</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-3">
+            <div class="item-form-container bg-secondary-subtle">
+
+                <h3 class="text-center py-3">Add Item</h3>
+                <form action="/inventory" method="post">
+                    <div class="mb-3">
+                        <label for="itemName" class="form-label">Item Name</label>
+                        <input name="item-name" type="text" class="form-control" id="itemName" placeholder="Enter Name">
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                          <label for="quantity" class="form-label">Quantity</label>
+                          <input name="item-quantity" type="number" class="form-control" placeholder="0+" aria-label="Quantity" id="quantity" min="1">
+                        </div>
+                        <div class="col">
+                          <label for="price" class="form-label">Price</label>
+                          <input name="item-price" type="number" step="0.01" class="form-control" placeholder="0+" aria-label="Price" id="price" min="1">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="barcode" class="form-label">Bar Code</label>
+                        <div class="input-group">
+                            <input name="item-code" type="text" class="form-control" placeholder="Eg. 110X453" aria-label="Bar Code" id="barcode">
+                            <button id="qr-button" class="btn btn-success pb-0"><span class="material-symbols-outlined">qr_code_2</span></button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-success" type="submit">Add Item</button>
+                </form>
+            </div>
+            <div class="d-none" id="reader" width="600px"></div>
+        </div>
+    </div>
+
+    <script src="/static/scan.js"></script>
+{% endblock %}
