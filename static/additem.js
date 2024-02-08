@@ -1,4 +1,5 @@
 const addItemButton = document.getElementById('add-item-button')
+const proceedButton = document.getElementById('proceed-button')
 const addItemCode = document.getElementById('add-item-code')
 const orderContainer = document.getElementById('item-container')
 const orderTotal = document.getElementById('order-total')
@@ -22,6 +23,25 @@ addItemButton.addEventListener('click', async (e) => {
     <td><span class="material-symbols-outlined trash-icon" onClick="deleteItem(event)">delete</span></td>
     </tr>`
     updateList()
+})
+
+proceedButton.addEventListener('click', async (e) => {
+    e.preventDefault()
+    let newOrder = {}
+    newOrder.items = []
+    newOrder.totalAmount = orderTotal.innerText
+    newOrder.customerName = document.getElementById('customer-name').value
+    newOrder.customerMobile = document.getElementById('customer-mobile').value
+    while (orderContainer.firstElementChild) {
+        let currentItem = orderContainer.firstElementChild
+        newOrder.items.push({
+            itemCode: currentItem.getElementsByClassName('list-item-name')[0].innerText,
+            quantity: currentItem.getElementsByClassName('list-item-quantity')[0].value
+        })
+        orderContainer.removeChild(orderContainer.firstElementChild)
+    }
+    console.log(newOrder)
+    // Make fetch api call to flask to store a bill entry and add items to sold ledger
 })
 
 function updateList() {

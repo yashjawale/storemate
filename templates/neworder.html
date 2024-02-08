@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-New Order
+    New Order
 {% endblock %}
 
 {% block main %}
@@ -10,7 +10,7 @@ New Order
         <div class="col-md-9">
             <div class="d-flex justify-content-between py-3">
                 <h3 class="flex-fill">Total: $ <span id="order-total">0</span></h3>
-                <button class="btn btn-primary btn-md" width="200px">Proceed</button>
+                <button class="btn btn-primary btn-md" width="200px" id="proceed-button">Proceed</button>
             </div>
             <table class="table table-striped rounded overflow-hidden">
                 <thead class="table-success">
@@ -29,15 +29,13 @@ New Order
         </div>
         <div class="col-md-3">
             <div class="item-form-container bg-secondary-subtle">
-                <h5>User Details</h5>
+                <h5>Customer Details</h5>
                 <form>
                     <div class="mb-3">
-                        <!-- <label for="itemName" class="form-label">Name</label> -->
-                        <input type="text" class="form-control" id="itemName" placeholder="Name">
+                        <input type="text" class="form-control" id="customer-name" placeholder="Name" aria-label="Name">
                     </div>
                     <div class="mb-3">
-                        <!-- <label for="itemName" class="form-label">Mobile</label> -->
-                        <input type="text" class="form-control" id="itemName" placeholder="Mobile">
+                        <input type="text" class="form-control" id="customer-mobile" placeholder="Mobile" aria-label="Mobile">
                     </div>
                 </form>
             </div>
