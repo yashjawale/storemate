@@ -33,6 +33,25 @@ def inventory():
         db.execute("INSERT INTO items (item_code, item_name, item_quantity, item_price) VALUES (?, ?, ?, ?);", item_code, item_name, item_quantity, item_price)
         return redirect("/inventory")
 
+# Returns a random 10 digit order number based on time
+def get_order_number():
+    import time
+    return int(time.time())
+    
+@app.route("/addorder", methods=["POST"])
+def addorder():
+    data = request.get_json()
+    customer_name = data['customerName']
+    customer_mobile = data['customerMobile']
+    total_amount = data['totalAmount']
+    items = data['items']
+    order_number = get_order_number()
+    db.execute("INSERT INTO orders (order_id, customer_name, customer_phone, order_total) VALUES (?, ?, ?, ?);", order_number, customer_name, customer_mobile, total_amount)
+    for item in items:
+        price = float(db.execute("SELECT item_price from items WHERE item_code = ?;", item['itemCode'])[0]["item_price"])
+        db.execute("INSERT INTO records (order_id, item_code, item_quantity, effective_price ) VALUES (?, ? , ?, ?);", order_number, item['itemCode'], item['quantity'], price * int(item['quantity']))
+    return redirect("/")
+
 @app.route("/getitem", methods=["GET"])
 def getitem():
     item_code = request.args.get('id')

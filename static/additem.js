@@ -17,7 +17,7 @@ addItemButton.addEventListener('click', async (e) => {
     <td class="list-item-name">${item.item_name}</td>
     <td>$ <span class="list-item-price">${item.item_price}</span></td>
     <td>
-        <input class="list-item-quantity" style="width: 60px;" type="number" min="1" value="1" onChange="updateList()">
+        <input class="list-item-quantity" style="width: 60px;" type="number" min="1" value="1" max=${item.item_quantity} onChange="updateList()">
     </td>
     <td>$ <span class="list-item-total">0</span></td>
     <td><span class="material-symbols-outlined trash-icon" onClick="deleteItem(event)">delete</span></td>
@@ -35,13 +35,26 @@ proceedButton.addEventListener('click', async (e) => {
     while (orderContainer.firstElementChild) {
         let currentItem = orderContainer.firstElementChild
         newOrder.items.push({
-            itemCode: currentItem.getElementsByClassName('list-item-name')[0].innerText,
+            itemCode: currentItem.getElementsByClassName('list-item-code')[0].innerText,
             quantity: currentItem.getElementsByClassName('list-item-quantity')[0].value
         })
         orderContainer.removeChild(orderContainer.firstElementChild)
     }
     console.log(newOrder)
     // Make fetch api call to flask to store a bill entry and add items to sold ledger
+    let response = await fetch('/addorder', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newOrder),
+        redirect: 'follow'
+    }).then(res => {
+        console.log(res)
+        if (res.redirected) {
+            window.location.href = res.url;
+        }
+    })
 })
 
 function updateList() {
