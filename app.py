@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, jsonify
 from cs50 import SQL
+import time
 
 app = Flask(__name__)
 
@@ -7,7 +8,8 @@ db = SQL("sqlite:///shop.db")
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    orders = db.execute("SELECT * FROM orders ORDER BY timestamp DESC LIMIT 10;")
+    return render_template("index.html", orders=orders)
 
 @app.route("/neworder")
 def neworder():
@@ -50,6 +52,7 @@ def addorder():
     for item in items:
         price = float(db.execute("SELECT item_price from items WHERE item_code = ?;", item['itemCode'])[0]["item_price"])
         db.execute("INSERT INTO records (order_id, item_code, item_quantity, effective_price ) VALUES (?, ? , ?, ?);", order_number, item['itemCode'], item['quantity'], price * int(item['quantity']))
+        db.execute("UPDATE items SET item_quantity = item_quantity - ? WHERE item_code = ?;", item['quantity'], item['itemCode'])
     return redirect("/")
 
 @app.route("/getitem", methods=["GET"])
